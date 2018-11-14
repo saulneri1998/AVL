@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
+
+	<title>Tree</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="libraries/p5.js"></script>
+	<script src="libraries/p5.dom.js"></script>
+
+	<script src="sketch.js"></script>
+	<script src="Tree.js"></script>
+	<script src="Node.js"></script>
+
+	<style>
+		body {
+			margin:0;
+			padding:0;
+			overflow: hidden;
+            font-family: 'Lato', sans-serif;
+            font-size: 18p;
+            background-color: rgb(255,255,255);
+		}
+		canvas {
+			margin:auto;
+		}
+		body div {
+			width: 80%;
+			margin: 0 auto;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			font-size: 20px;
+            font-family: 'Lato', sans-serif;
+            font-size: 22px;
+		}
+        button{
+            font-family: inherit;
+            font-size: inherit;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s ease;
+            border-radius: 10px;
+        }
+        img{
+            margin-bottom: -20px;
+            margin-left: 25px;
+        }
+        #reset_button{
+            background-color: gray;
+        }
+        #remove_button{
+            background-color: #B71C1C;
+        }
+
+        button:focus{
+            outline: none;
+        }
+        button:hover{
+            transition: 0.3s ease;
+            font-size: 26px;
+        }
+        input:focus, img:focus {
+            outline:none;
+        }
+
+        #user_input:hover{
+            transition: 0.5s;
+            background-color: rgb(235,235,235);
+        }
+        #user_input{
+            transition: 0.3s;
+            font-family: inherit;
+            font-size: inherit;
+            border-style:solid;
+            border: 0px;
+            height: 60px;
+            text-align: center;
+            border-radius: 10px;
+            background-color: rgb(245,245,245);
+        }
+        @media screen and (max-width: 850px){
+            body div {
+			width: 100%;
+			margin: 0 auto;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			font-size: 20px;
+            font-family: 'Lato', sans-serif;
+            font-size: 22px;
+		    }
+            img{
+                display: none;
+            }
+            button{
+            padding: 7.5px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s ease;
+            border-radius: 10px;
+            }
+            #user_input{
+            height: 50px;
+        }
+        }
+	</style>
+</head>
+<body>
+	<div>
+        <img id = "download_button" src="libraries/images/download1.png" >
+		<input id="user_input" autofocus="autofocus" placeholder= "Input an integer"></input>
+		<button id="add_button" >Add</button>
+		<button id="remove_button">Remove</button>
+        <button id = "reset_button">Reset</button>
+
+    </div>
+
+     <script>
+         $(document).ready(function() {
+                     $("#dowload_button").attr('title', 'download tree');
+
+         });
+        $("#add_button").click(function(){
+            $(this).fadeOut(200);
+            $(this).fadeIn(200);
+            $("#user_input").val("");
+        });
+
+        $("#remove_button").click(function(){
+            $(this).fadeOut(200);
+            $(this).fadeIn(200);
+        });
+
+        $("#download_button").click(function(){
+            $(this).fadeOut(200);
+            $(this).fadeIn(200);
+            saveCanvas("Tree", "png")
+        });
+
+        $("#reset_button").click(function(){
+            $(this).fadeOut(200);
+            $(this).fadeIn(200);
+            tree.root = null;
+        });
+    </script>
+</body>
+
+</html>
